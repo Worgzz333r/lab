@@ -1,1 +1,0 @@
-print("Yokoso watashi no soul society")
