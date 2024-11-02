@@ -4,7 +4,7 @@ body {
     list-style: none;
     text-decoration: none;
 /* Фонове зображення */
-    background-image: url(imgs/main-background.jpg);
+    background-image: url(images/main-background.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
