@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+/* Фонове зображення */
+    background-image: url(imgs/main-background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: block;
+    background-color: #45261D;
+}
+
+.container {
+    /* Основа хедера */
+    width: 1500px;
+    height: 100%;
+
+    display: block;
+    margin: 0 auto;
+}
+
+.text {
+    color: #E1C3B8;
+    font-weight: 600;
+}
+
+.logo-container {
+    display: table;
+    height: 100%;
+    width: 300px;
+    float: left;
+}
+
+.logo-container .text {
+      /* Форматування тексту логотипу */
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    font-family: 'Hermeneus One', sans-serif;
+    font-size: 52px;
+}
+
+.logo-container .logo-img {
+      /* Форматування фото логотипу */
+    display: table-cell;
+    vertical-align: middle;
+    width: 96px;
+    transform: scaleX(-1);
+    padding: 7px 0px 0px 10px;
+}
+
+.navigation {
+    float: right;
+    height: 100%;
+    margin: 0;
+    padding-left: 0;
+}
+
+.navigation a {
+    height: 100%;
+    display: table;
+    float: left;
+    padding: 0px 20px;
+}
+
+.navigation a:last-child {
+    padding-right: 0;
+}
+
+.navigation a li {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    color: #E1C3B8;
+    font-family: 'Hermeneus One', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.header-btn {
+    /* Форматування кнопки */
+    background-color: #3E3D2B;
+    color: #5A9E68;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0px 15px 0px 15px;
+
+    border: 0px;
+
+    /* Форматування тексту */
+    font-family: 'Hermeneus One', sans-serif;
+    font-size: 32px;
+}
+
+.header-btn:hover {
+    box-shadow: 0px 4px 10px #00000040;
+}
+
+.header-btn:active {
+    box-shadow: inset 0px 0px 5px #00000080;
+}
+
+.container .search-bar {
+    display: inline-block;
+    height: 100%;
+    padding: 19px 0px 0px 130px;
+}
+
+.container .search-bar .input-bar {
+    background-color: #F5C0AD;
+    width: 420px;
+    height: 40px;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 15px #00000080;
+}
+
+.container .input-bar .loupe-img {
+    width: 40px;
+}
+
+main {
+
+    height: 623px;
+
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+
+main .container {
+    width: 100%;
+    height: 100px;
+    background-color: #413223;
+
+    margin-bottom: 30px;
+}
+
+main .container .description {
+    display: table;
+    margin: 0 auto;
+    padding-left: 0;
+
+    text-align: left;
+    height: 100%;
+    width: 1500px;
+}
+
+main .container .description li {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px 80px 0px 80px;
+
+    color: white;
+    font-size: 32px;
+    font-family: 'Hermeneus One', sans-serif;
+}
+
+main .catalog-container {
+    display: inline;
+    align-self: end;
+    margin-left: 10vh;
+    margin-top: 160px;
+}
+
+main .catalog-container h1 {
+    width: 400px;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+}
+
+main .catalog-container button {
+    height: 80px;
+    width: 400px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: #606621;
+    border: 0;
+    text-align: center;
+}
+
+main .catalog-container button .catalog-btn:hover {
+    text-decoration: underline 2px solid white;
+}
+
+main .catalog-container button .catalog-btn:active {
+    color: #B3B96D;
+    text-decoration: underline 2px solid #B3B96D;
+}
