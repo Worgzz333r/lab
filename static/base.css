@@ -18,6 +18,7 @@ header {
     height: 80px;
     display: block;
     background-color: #45261D;
+    z-index: 5;
 }
 /* Логотип */
 header .container {
@@ -27,6 +28,7 @@ header .container {
 
     display: block;
     margin: 0 auto;
+    background-color: #45261D;
 }
 
 header .container .logo-container {
@@ -164,8 +166,10 @@ header .container .navigation a li .header-btn:active {
 
 
 /* MAIN STYLE START*/
-
 main {
+    height: 100vh;
+}
+.main-container {
     display: flex;
     align-items: end;
     flex-wrap: wrap;
@@ -174,7 +178,7 @@ main {
 }
 
 /* Досягення сайту */
-main .container {
+.container {
     width: 100%;
     height: 100px;
     background-color: #413223;
@@ -182,7 +186,7 @@ main .container {
     margin-bottom: 30px;
 }
 
-main .container .description {
+.container .description {
     display: table;
     margin: 0 auto;
     padding-left: 0;
@@ -192,7 +196,7 @@ main .container .description {
     width: 1500px;
 }
 
-main .container .description li {
+.container .description li {
     display: table-cell;
     vertical-align: middle;
     padding: 0px 80px 0px 80px;
@@ -202,22 +206,23 @@ main .container .description li {
     font-family: 'Hermeneus One', sans-serif;
 }
 /* Кінець */
+
 /* Вітальний текст */
-main .catalog-container {
+.catalog-container {
     display: inline;
     align-self: end;
     margin-left: 10vh;
     margin-top: 160px;
 }
 
-main .catalog-container h1 {
+.catalog-container h1 {
     width: 400px;
     color: white;
     font-family: 'Inter', sans-serif;
     font-size: 40px;
 }
 
-main .catalog-container button {
+.catalog-container button {
     height: 80px;
     width: 400px;
     font-size: 40px;
@@ -228,14 +233,30 @@ main .catalog-container button {
     text-align: center;
 }
 
-main .catalog-container button .catalog-btn:hover {
-    transition: 0.2s;
+.catalog-container button .catalog-btn:hover {
+    transition: 0.3s;
     color: #B3B96D;
 }
 
-main .catalog-container button .catalog-btn:active {
-    transition: 0.2s;
-    text-decoration: underline 2px solid #B3B96D;
+.catalog-container button .catalog-btn{
+    position: relative;
 }
+
+.catalog-container button .catalog-btn:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #B3B96D;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+  }
+
+.catalog-container button .catalog-btn:hover:after {
+    transform: scaleX(1);
+  }
+
 /* Кінець */
 /* MAIN STYLE END */
