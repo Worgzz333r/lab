@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    /* Фонове зображення */
+    background-image: url(images/main-background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* HEADER STYLE START */
+
+.test{
+    width: 600px;
+    height: 500px;
+    background-color: black;
+    border: 1px;
+    margin-top: 500px;
+    font-size: 30px;
+    color: white;
+    font-family: 'Hermeneus One', sans-serif;
+}
+
+/* HEADER STYLE END */
+
+
+/* MAIN STYLE START*/
+
+/* MAIN STYLE END */
