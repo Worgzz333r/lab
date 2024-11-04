@@ -1,24 +1,21 @@
 {%extends "base.html"%}
 {%block title%}<title>Stone Hearts store</title>{%endblock%}
-<link rel="stylesheet" href="../static/store.css">
 {%block content%}
 
-<div class="store-container">
+<div class="store-grid">
 
-    <div class="title-container">
-
-        STORE
-
-
+    <div class="store-title">
+        <span>STORE</span>
     </div>
 
     <div class="filters-page">
         <ul>
-            <li>Filter</li>
+            <li id="filters">Filters <img src="" alt=""></li>
             <hr>
-            <li>gqrg</li>
-            <li>qbereqb</li>
-            <li>bqq</li>
+            <li id="price">Price <span>></span></li>
+            <hr>
+            <li id="category">Category <span>></span></li>
+            <hr>
         </ul>
     </div>
     <div class="products-list">

@@ -5,6 +5,7 @@
     {%block title%}{%endblock%}
     <link rel="stylesheet" href="../static/base.css">
     <link rel="stylesheet" href="../static/store.css">
+    <link rel="stylesheet" href="../static/about.css">
     <link href="https://fonts.cdnfonts.com/css/hermeneus-one" rel="stylesheet">
 </head>
 
@@ -37,7 +38,7 @@
                 <a>
                     <li><button class="header-btn">cart</button></li>
                 </a>
-                <a>
+                <a href="/about">
                     <li><button class="header-btn">about</button></li>
                 </a>
                 <a>
@@ -47,12 +48,12 @@
             <!-- Кінець -->
 
         </div>
-        <!-- Кінецьц -->
+        <!-- Кінець -->
     </header>
 
-<main>
- {%block content%}{%endblock%}
-</main>
+    <main>
+        {%block content%}{%endblock%}
+    </main>
 </body>
 
 </html>
