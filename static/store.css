@@ -1,14 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    /* Фонове зображення */
-    background-image: url(images/main-background.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 /* MAIN STYLE START*/
 
 .store-background{

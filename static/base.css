@@ -3,11 +3,8 @@ body {
     padding: 0;
     list-style: none;
     text-decoration: none;
-    /* Фонове зображення */
-    background-image: url(images/main-background.jpg);
-    background-size: cover;
-    background-attachment: fixed;
     font-family: 'Kameron';
+    height: 100%;
 }
 
 /* HEADER STYLE START */
@@ -150,8 +147,9 @@ header .container .navigation a li .header-btn {
     font-size: 32px;
     color: #D5C5BA;
     font-weight: medium;
-    
+
 }
+
 /* 
 header .container .navigation a li .header-btn:hover {
  ddw
