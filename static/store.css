@@ -11,6 +11,12 @@ body {
 
 /* MAIN STYLE START*/
 
+.store-background{
+    background-image: url(images/store-background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .store-grid {
     display: grid;
     grid-template-columns: 0.8fr 4fr;

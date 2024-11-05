@@ -11,6 +11,11 @@ body {
 
 
 /* MAIN STYLE START*/
+.about-background {
+    background-image: url(images/acwacacacawvevwv.webp);
+    background-size: cover;
+    background-attachment: fixed;
+}
 
 /* Головний дів */
 .about-container {
@@ -19,6 +24,8 @@ body {
 
     width: 100vh;
     margin: 0 auto;
+    padding-bottom: 5vh;
+    color: #FFF4E6;
 }
 
 /* Заголовок вкладок з текстом про команду */
@@ -32,14 +39,17 @@ body {
     display: grid;
     grid-template-rows: 150px minmax(250px, 270px) minmax(100px, 270px) minmax(100px, 270px);
     grid-template-columns: minmax(680px, 700px) minmax(680px, 700px);
-    grid-gap: 3vh;
+    grid-gap: 4vh;
 
     margin: 0 auto;
 }
 
 .about-grid .about-bg {
-    background-color: #737A28;
+    background-color: #BD977C;
+    border-radius: 10px;
     padding: 0px 1vh 0px 1vh;
+
+    box-shadow: inset 0px 0px 10px #331500;
 }
 
 /* Заголовок */
@@ -49,7 +59,6 @@ body {
 
     font-size: 64px;
     font-weight: bolder;
-    color: white;
 }
 
 /* Контейнер з текстом про команду */
@@ -84,10 +93,12 @@ body {
 
 /* Контейнер контаків */
 .about-grid .dev-contacts {
-
     grid-row: 5 / 6;
     grid-column: 1 / 3;
-    background-color: #52571C;
+    
+    background-color: #9b7960;
+    box-shadow: inset 0px 0px 10px #331500;
+    border-radius: 10px;
     padding: 0px 1vh 0px 1vh;
     padding-bottom: 1vh;
 }
@@ -96,7 +107,7 @@ body {
 
 /* Основний текст вкладок */
 .about-grid .about-bg p {
-    color: black;
+    color: #FFF4E6;
     font-size: 26px;
     margin: 0;
 }
@@ -134,7 +145,7 @@ body {
 
 /* Заголовок вкладки контаки */
 .about-container .about-grid .dev-contacts h2 {
-    color: black;
+    color: #FFF4E6;
     font-size: 32px;
     font-weight: bold;
     margin: 1vh 0 1vh 0;
