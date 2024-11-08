@@ -91,6 +91,10 @@ header .container .search-bar input {
     color: #000000bf;
 }
 
+header .container .search-bar input::-webkit-search-cancel-button {
+    display: none;
+}
+
 header .container .loupe-img {
     /* Зображення лупи */
     width: 40px;

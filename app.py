@@ -14,5 +14,9 @@ def store():
 def about():
     return render_template("about.html")
 
+@app.route("/cart")
+def cart():
+    return render_template("cart.html")
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
