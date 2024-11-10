@@ -1,0 +1,133 @@
+.feedback {
+    background-image: url(images/feedback-background.webp);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.feedback .feedback-container {
+    background-color: #BD977C;
+    width: 650px;
+    height: 830px;
+    margin: 0 auto;
+    margin-top: 3vh;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #331500;
+    font-family: 'Kameron';
+    text-align: center;
+    padding-top: 0.1vh;
+    color: #FFF4E6;
+}
+
+.feedback-form .feedback-bg-format {
+    /* Формат полів */
+    background-color: #F5C0AD;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
+    box-shadow: inset 0px 4px 4px #BD977CBF;
+    /* Позиціонування рядка вводу */
+    padding-top: 10px;
+    padding-left: 10px;
+    display: block;
+}
+
+.feedback .feedback-container h1 {
+    font-size: 52px;
+}
+
+.feedback-form {
+    text-align: left;
+    margin-left: 4vh;
+}
+
+.feedback-form span {
+    font-size: 32px;
+    font-weight: bold;
+    display: block;
+}
+
+/* Рядок вводу ім'я*/
+.feedback-form .name-input {
+    /* Форматування рядка вводу */
+    width: 260px;
+    height: 40px;
+}
+
+/* Рядок введення пошти*/
+.feedback-form .email-input {
+    /* Форматування рядка вводу */
+    width: 420px;
+    height: 40px;
+
+}
+
+/* Рядок введення причини*/
+.feedback-form .subject-input {
+    /* Форматування рядка вводу */
+    width: 420px;
+    height: 40px;
+}
+
+/* Рядок введення повідомлення*/
+.feedback-form .message-input {
+    /* Форматування рядка вводу */
+    width: 560px;
+    height: 160px;
+}
+
+ .message-input::placeholder {
+    text-align: left;
+    vertical-align: top;
+    font-family: 'Kameron';
+    font-size: 32px;
+}
+
+.feedback-form .feedback-bg-format::-webkit-search-cancel-button {
+    display: none;
+}
+
+/*Кнопака надсилання відгуку */
+.submit-btn {
+    /* Форматування рядка вводу */
+    background-color: #CBB19B;
+    border-radius: 50px;
+    width: 184px;
+    height: 50px;
+    outline: none;
+    border: 0;
+    box-shadow: 0px 5px 4px #66452ABF;
+    margin: 0 auto;
+
+    /* Форматування тексту кнопки "Submit" */
+    font-size: 32px;
+    color: #66452A;
+    font-family: 'Kameron';
+    font-weight: medium;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    font-family: 'Kameron';
+    font-size: 28px;
+    color: #000000bf;
+    padding: 10px;
+
+}
+
+.feedback-form input::placeholder {
+    font-size: 32px;
+    font-family: 'Kameron';
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.submit-btn:active {
+    transition: 0.2s;
+    box-shadow: 0 5px 4px #66452ABF;
+    transform: translateY(4px);
+  }
