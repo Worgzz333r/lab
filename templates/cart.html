@@ -1,0 +1,151 @@
+{%extends "base.html"%}
+
+{%block title%}<title>Stone hearts cart</title>{%endblock%}
+
+{%block content%}
+<body class="cart-background">
+    <div class="cart-grid">
+        <h1>
+            Cart
+        </h1>
+        <div class="order-elements">
+            <div class="clear-all">
+                <img class="trash-bin-image" src="static/images/trash-bin.png">
+                <button class="clear-button">
+                    Clear
+                </button>
+            </div>
+
+            <div class="product-panel">
+                <div class="product">
+                    <img class="image" src="static/images/sapphire-image.png">
+                    <span class="product-info">
+                        Sapphire
+                        <p>
+                            id: 123456
+                        </p>
+                    </span>
+                    <span class="product-price">
+                        <span class="currency">$</span>1324
+                    </span>
+                    <div class="product-menu">
+                        <button class="delete-button">
+                            Delete
+                        </button>
+                        <div class="amount">
+                            <span>
+                                Amount:
+                            </span>
+                            <div class="amount-block">
+                                <div class="amount-menu">
+                                    <button class="minus">
+                                        <hr>
+                                    </button>
+                                    <span>
+                                        1
+                                    </span>
+                                    <button class="add">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product">
+                    <img class="image" src="static/images/emerald-image.png">
+                    <span class="product-info">
+                        Emerald
+                        <p>
+                            id: 654321
+                        </p>
+                    </span>
+                    <span class="product-price">
+                        <span class="currency">$</span>1234
+                    </span>
+                    <div class="product-menu">
+                        <button class="delete-button">
+                            Delete
+                        </button>
+                        <div class="amount">
+                            <span>
+                                Amount:
+                            </span>
+                            <div class="amount-block">
+                                <div class="amount-menu">
+                                    <button class="minus">
+                                        <hr>
+                                    </button>
+                                    <span>
+                                        2
+                                    </span>
+                                    <button class="add">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="total-container">
+            <h1>
+                Products:
+            </h1>
+            <div class="price">
+                <span class="currency">$</span>
+                <span class="price-number">1487</span>
+            </div>
+            <p>
+                Sapphire -
+                <span class="product-number">
+                    1
+                </span>
+            </p>
+            <hr>
+            <div class="price1">
+                <span class="currency">$</span>
+                <span class="price-number">1489</span>
+            </div>
+            <p>
+                Emerald -
+                <span class="product-number">
+                    2
+                </span>
+            </p>
+            <hr>
+            <div class="price1">
+                <span class="currency">$</span>
+                <span class="price-number">1486</span>
+            </div>
+            <p>
+                Total:
+            </p>
+        </div>
+        <div class="recomendations-block">
+            <p class="rec-title">
+                Recommendations:
+            </p>
+            <div class="recomendation-container">
+                <img src="static/images/topaz-image.png">
+                <p class="name-container">
+                    Topaz
+                </p>
+                <div class="price-block">
+                    <div class="currency-price">
+                        <span class="currency">$</span>
+                        <span class="price-number">1567</span>
+                    </div>
+                    <button class="add-to-cart">
+                        <span>
+                            Add to
+                        </span>
+                        <img src="static/images/cart-image.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{%endblock%}

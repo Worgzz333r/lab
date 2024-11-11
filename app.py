@@ -14,5 +14,16 @@ def store():
 def about():
     return render_template("about.html")
 
+@app.route("/feedback")
+def feedback():
+    return render_template("feedback.html")
+
+@app.route("/cart")
+def cart():
+    return render_template("cart.html")
+
+
+
+
 if __name__ == '__main__':
     app.run()
