@@ -52,7 +52,7 @@
     display: flex;
     align-items: start;
     justify-content: space-around;
-    height: fit-content;
+    height: max-content;
     flex-wrap: wrap;
 }
 

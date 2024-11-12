@@ -1,6 +1,20 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session
+from models import init_db
+from routes.feedback import feedback_bp
+from routes.admin import admin_bp
+from routes.shop import shop_bp
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # Необхідно для роботи з сесіями
+
+# Ініціалізація бази даних
+init_db()
+
+# Реєстрація блюпрінтів
+app.register_blueprint(feedback_bp)
+app.register_blueprint(admin_bp)
+app.register_blueprint(shop_bp)
+
 
 @app.route("/")
 def main():
@@ -22,8 +36,5 @@ def feedback():
 def cart():
     return render_template("cart.html")
 
-
-
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
