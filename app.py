@@ -1,8 +1,8 @@
 from flask import Flask, render_template, session
-from models import init_db
+from models import init_db,  get_db_connection, get_orders, get_order_details, update_order_status, delete_order
 from routes.feedback import feedback_bp
 from routes.admin import admin_bp
-from routes.shop import shop_bp
+from routes.store import store_bp
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Необхідно для роботи з сесіями
@@ -13,7 +13,7 @@ init_db()
 # Реєстрація блюпрінтів
 app.register_blueprint(feedback_bp)
 app.register_blueprint(admin_bp)
-app.register_blueprint(shop_bp)
+app.register_blueprint(store_bp)
 
 
 @app.route("/")

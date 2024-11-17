@@ -4,7 +4,7 @@ body {
     list-style: none;
     text-decoration: none;
     font-family: 'Kameron';
-    height: 100%;
+    height: initial;
 }
 
 /* HEADER STYLE START */
@@ -45,7 +45,7 @@ header .container {
     height: 100%;
     /* Форматування тексту логотипу */
     font-family: 'Kameron';
-    font-size: 49px;
+    font-size: 47px;
     font-weight: 600;
 }
 
@@ -176,7 +176,7 @@ header .container .navigation {
     transform: scaleX(70%);
 }
 
-.navigation a li #feedback-btn:hover:after{
+.navigation a li #feedback-btn:hover:after {
     transform: scaleX(80%);
 }
 

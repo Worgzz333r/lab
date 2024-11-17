@@ -97,12 +97,14 @@
       <div class="products-container">
 
         <!-- Вкладка продукту -->
-        {% for product in product %}
+        {% for product in products %}
         <div class="product-list-panel">
+         
           <!-- Дів з текстом -->
           <div class="product-text">
+           
             <!-- Заголовок -->
-            <span class="product-title">{{ product.name }}</span>
+            <form class="product-title">{{ product.name }}</form>
             <!-- Опис -->
             <p class="product-descr">{{ product.description }}</p>
           </div>
@@ -121,7 +123,7 @@
 
           </div>
           <!-- Кінець меню товара -->
-
+          <img class="product-bg" src=" {{ product.image }}" alt="stone-background">
         </div>
         <!-- Кінець вкладки -->
         {% endfor %}

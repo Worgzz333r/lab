@@ -69,30 +69,25 @@
 /* Заголовок та опис продукта */
 .products-container .product-list-panel .product-text {
     grid-row: 1 / 2;
-    color: #F0E7E2;
+    color: #FFF4E6;
     border-radius: 10px 10px 0 0;
-    padding: 0 .7em 0 .7em;
-
-    background-image: url(images/product-bgs/obsidian-bg.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: transparent;
+    text-shadow: 2px 1px 3px #231E32;
+    padding-left: .7em;
 }
 
-
-.products-container .product-list-panel .product-text-2 {
-    grid-row: 1 / 2;
-    color: #F0E7E2;
-    border-radius: 10px 10px 0 0;
-    padding: 0 .7em 0 .7em;
-
-    background-image: url(images/product-bgs/peridot-bg.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+.product-bg{
+    position: absolute;
+    width: 480px;
+    height: 187.5px;
+    z-index: -1;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #3C2F2F;
 }
 
 /* Відступ заголовка */
 .products-container .product-list-panel .product-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-left: 0.3em;
 }
 
@@ -109,7 +104,7 @@
 
     font-size: 1.8rem;
 
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 9px 9px;
     background-color: #231E32;
     justify-content: space-between;
     align-items: center;

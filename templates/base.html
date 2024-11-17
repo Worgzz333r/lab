@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
 
+<html>
+    
 <head>
     {%block title%}{%endblock%}
-    <link rel="stylesheet" href="../static/base.css">
-    <link rel="stylesheet" href="../static/home.css">
-    <link rel="stylesheet" href="../static/store.css">
-    <link rel="stylesheet" href="../static/cart.css">
-    <link rel="stylesheet" href="../static/about.css">
-    <link rel="stylesheet" href="../static/feedback.css">
-    
-    <link href='https://fonts.googleapis.com/css?family=Kameron' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='store.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cart.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='order_details.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Kameron" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='images/dr-stone-img.png') }}" type="image/x-icon">
+
 </head>
 
     <header>
@@ -19,7 +23,7 @@
 
             <!-- Логотип та назва сайту -->
             <div class="logo-container">
-                <img class="logo-img" src="static/images/dr-stone-img.png">
+                <img class="logo-img" src="{{ url_for('static', filename='images/dr-stone-img.png') }}">
                 <span class="text"><a href="/">Stone hearts</a></span>
 
             </div>
@@ -27,7 +31,7 @@
 
             <!-- Пошуковий рядок -->
             <div class="search-bar">
-                <img class="loupe-img" src="static/images/loupe-img.png">
+                <img class="loupe-img" src="{{ url_for('static', filename='images/loupe-img.png') }}">
                 <input type="search" placeholder="Stone...">
                 </input>
             </div>
