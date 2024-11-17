@@ -9,9 +9,9 @@ def get_db_connection():
 def init_db():
     conn = get_db_connection()
     conn.execute('CREATE TABLE IF NOT EXISTS feedback (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT, subject TEXT, message TEXT)')
+    conn.execute('CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price REAL, filter_id INTEGER, FOREIGN KEY (filter_id) REFERENCES filters (id))')
+    conn.execute('CREATE TABLE IF NOT EXISTS orders (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, address TEXT, total_price REAL, date TEXT, status TEXT)')
     conn.execute('CREATE TABLE IF NOT EXISTS filters (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)')
-    conn.execute('CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price REAL, image TEXT, description TEXT, filter_id INTEGER)')
-    conn.execute('CREATE TABLE IF NOT EXISTS orders (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, address TEXT, total_price REAL, status TEXT, date TEXT)')
     conn.execute('CREATE TABLE IF NOT EXISTS order_items (id INTEGER PRIMARY KEY AUTOINCREMENT, order_id INTEGER, product_id INTEGER, quantity INTEGER, FOREIGN KEY (order_id) REFERENCES orders (id), FOREIGN KEY (product_id) REFERENCES products (id))')
     conn.commit()
     conn.close()
@@ -24,10 +24,11 @@ def get_products():
 
 def add_order(email, address, cart):
     conn = get_db_connection()
-    total_price = sum(item['price'] * item['quantity'] for item in cart.values())
+    for item in cart.values():
+        total_price = sum(item['price'] * item['quantity'])
     cur = conn.cursor()
     cur.execute('INSERT INTO orders (email, address, total_price, status, date) VALUES (?, ?, ?, ?, ?)',
-                (email, address, total_price, 'New', datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+                (email, address, total_price, 'New', datetime.now().strftime("%Y-%m-%d %H:%M")))
     order_id = cur.lastrowid
     for item in cart.values():
         cur.execute('INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)',

@@ -6,33 +6,36 @@
 
 .feedback .feedback-container {
     background-color: #BD977C;
-    width: 40.7em;
-    height: 55em;
+    width: 650px;
+    height: 830px;
     margin: 0 auto;
-    margin-top: 4em;
+    margin-top: 3vh;
     border-radius: 10px;
     box-shadow: 0px 0px 20px #331500;
     font-family: 'Kameron';
     text-align: center;
+    padding-top: 0.1vh;
     color: #FFF4E6;
-}
-
-.feedback-container h1{
-    padding-top: 0.5em;
 }
 
 .feedback-form .feedback-bg-format {
     /* Формат полів */
+    font-size: 1.5rem;
+    font-family: 'Kameron';
     background-color: #F5C0AD;
-    margin-bottom: 1em;
+    margin-bottom: 30px;
     border-radius: 10px;
     outline: none;
     border: 0;
     box-shadow: inset 0px 4px 4px #BD977CBF;
     /* Позиціонування рядка вводу */
-    padding-top: 0.5em;
-    padding-left: 0.6em;
+    padding-top: 10px;
+    padding-left: 10px;
     display: block;
+}
+
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #F5C0AD inset !important;
 }
 
 .feedback .feedback-container h1 {
@@ -41,40 +44,42 @@
 
 .feedback-form {
     text-align: left;
-    margin-left: 2.5em;
+    margin-left: 4vh;
 }
 
 .feedback-form span {
     font-size: 32px;
     font-weight: bold;
+    display: block;
 }
 
 /* Рядок вводу ім'я*/
 .feedback-form .name-input {
     /* Форматування рядка вводу */
-    width: 15em;
-    height: 1.2em;
+    width: 260px;
+    height: 40px;
 }
 
 /* Рядок введення пошти*/
 .feedback-form .email-input {
     /* Форматування рядка вводу */
-    width: 15em;
-    height: 1.2em;
+    width: 420px;
+    height: 40px;
+
 }
 
 /* Рядок введення причини*/
 .feedback-form .subject-input {
     /* Форматування рядка вводу */
-    width: 15em;
-    height: 1.2em;
+    width: 420px;
+    height: 40px;
 }
 
 /* Рядок введення повідомлення*/
 .feedback-form .message-input {
     /* Форматування рядка вводу */
-    width: 19.5em;
-    height: 8em;
+    width: 560px;
+    height: 160px;
 }
 
  .message-input::placeholder {
@@ -82,10 +87,6 @@
     vertical-align: top;
     font-family: 'Kameron';
     font-size: 32px;
-}
-
-.feedback-form .feedback-bg-format::-webkit-search-cancel-button {
-    display: none;
 }
 
 /*Кнопака надсилання відгуку */
@@ -107,7 +108,6 @@
     font-weight: medium;
 }
 
-.feedback-form input,
 .feedback-form textarea {
     font-family: 'Kameron';
     font-size: 28px;
@@ -127,22 +127,8 @@
     width: 100%;
 }
 
-  .submit-btn:active {
-    /* Анімація кнопок */
-    transition: 0.1s;
-    transform: scale(0.93);
-}
-
-.submit-btn:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: .07em;
-    border-radius: 5px;
-    bottom: 0;
-    left: 0;
-    background-color: #E5CAA6;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-out;
-    margin-bottom: 0.15em;
-}
+.submit-btn:active {
+    transition: 0.2s;
+    box-shadow: 0 5px 4px #66452ABF;
+    transform: translateY(4px);
+  }

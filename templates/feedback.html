@@ -1,28 +1,58 @@
 {%extends "base.html"%}
 
-{%block title%}<title>Stone Hearts Feedback</title>{%endblock%}
+{%block title%}<title>Stone hearts</title>{%endblock%}
 {%block content%}
-    <body class="feedback">
-        <div class="feedback-container">
-            <h1> Feedback Form </h1>
+
+<body class="feedback">
+    <form autocomplete="off" id="feedback-id" class="feedback-container">
+        <h1> Feedback Form </h1>
         <div class="feedback-form">
-            
-            <span> Name: </span>
-            <input class="name-input feedback-bg-format" type="text" placeholder="Enter name">   
-
-            <span> Email: </span>
-            <input class="email-input feedback-bg-format" type="email" placeholder="Enter email">
-
-            <span> Subject: </span>
-            <input class="subject-input feedback-bg-format" type="text" placeholder="Enter subject">
-
-            <span> Message: </span>
-            <textarea class="message-input feedback-bg-format" type="search" placeholder="Enter message"></textarea>
-
+            <span for="name"> Name: </span>
+            <input type="text" id="name" name="name" class="name-input feedback-bg-format" placeholder="Enter name">
+            <span for="email"> Email: </span>
+            <input type="email" id="email" name="email" class="email-input feedback-bg-format" placeholder="Enter email">
+            <span for="subject"> Subject: </span>
+            <input type="text" id="subject" name="subject" class="subject-input feedback-bg-format" placeholder="Enter subject">
+            <span for="message"> Message: </span>
+            <textarea id="message" name="message" class="message-input feedback-bg-format" placeholder="Enter message"></textarea>
         </div>
         <div class="btn-container">
-            <button class="submit-btn">Submit</button>
+            <button type="submit" class="submit-btn">Submit</button>
         </div>
-    </div>
+    </form>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('feedback-id');
+        const modal = document.getElementById('thankYouModal');
+        const closeButton = document.getElementById('closeModal');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Відправляємо дані на сервер за допомогою AJAX
+            fetch('{{ url_for("feedback.feedback") }}', {
+                method: 'POST',
+                body: new FormData(form),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Очищаємо форму
+                        form.reset();
+                    } else {
+                        alert('Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз.');
+                });
+        });
+
+        closeButton.addEventListener('click', function () {
+            modal.classList.add('hidden');
+        });
+    });
+</script>
 {%endblock%}
