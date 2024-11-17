@@ -20,6 +20,7 @@
 
 .feedback-form .feedback-bg-format {
     /* Формат полів */
+    font-size: 1.5rem;
     background-color: #F5C0AD;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -30,6 +31,10 @@
     padding-top: 10px;
     padding-left: 10px;
     display: block;
+}
+
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #F5C0AD inset !important;
 }
 
 .feedback .feedback-container h1 {
@@ -83,9 +88,9 @@
     font-size: 32px;
 }
 
-.feedback-form .feedback-bg-format::-webkit-search-cancel-button {
+/* .feedback-form .message-input::-webkit-search-cancel-button {
     display: none;
-}
+} */
 
 /*Кнопака надсилання відгуку */
 .submit-btn {
@@ -106,7 +111,6 @@
     font-weight: medium;
 }
 
-.feedback-form input,
 .feedback-form textarea {
     font-family: 'Kameron';
     font-size: 28px;

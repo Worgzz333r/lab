@@ -1,0 +1,91 @@
+{%extends "base.html"%}
+
+{%block title%}<title>Stone hearts cart</title>{%endblock%}
+
+{%block content%}
+
+<body class="cart-background">
+    {% if cart %}
+    <div class="cart-grid">
+        <h1>
+            Cart
+        </h1>
+        <div class="order-elements">
+            <div class="clear-all">
+                <img class="trash-bin-image" src="static/images/trash-bin.png">
+                <button class="clear-button">
+                    Clear
+                </button>
+            </div>
+
+            <div class="product-panel">
+                <div class="product">
+                    {% for item in cart.values() %}
+                    <img class="image" src="">
+                    <span class="product-info">
+                        {{ item.name }}
+                    </span>
+                    <span class="product-price">
+                        <span class="currency">$</span>{{ item.price }}
+                    </span>
+                    <div class="product-menu">
+                        <button class="delete-button">
+                            Delete
+                        </button>
+                        <div class="amount">
+                            <span>
+                                Amount:
+                            </span>
+                            <div class="amount-block">
+                                <div class="amount-menu">
+                                    <button class="minus">
+                                        <hr>
+                                    </button>
+                                    <span>
+                                        {{ item.quantity }}
+                                    </span>
+                                    <button class="add">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="total-container">
+            <h1>
+                Products:
+            </h1>
+            <div class="price">
+                <span class="currency">$</span>
+                <span class="price-number">{{ item.price }}</span>
+            </div>
+            <p>
+                {{ item.name }} -
+                <span class="product-number">
+                    {{ item.quantity }}
+                </span>
+            </p>
+            <hr>
+            <div class="price1">
+                <span class="currency">$</span>
+                <d class="price-number">{{ item.price }} * {{ item.quantity }}</d>
+            </div>
+            <p>
+                Total:
+            </p>
+        </div>
+        {% endfor %}
+        <div class="recomendations-block">
+
+        </div>
+    </div>
+    {% else %}
+    <p>
+        Ваш кошик порожній.
+    </p>
+    {% endif %}
+</body>
+{%endblock%}

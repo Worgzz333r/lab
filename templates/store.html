@@ -1,27 +1,135 @@
 {%extends "base.html"%}
-{%block title%}<title>Stone Hearts store</title>{%endblock%}
+{%block title%}<title>Stone Hearts Store</title>{%endblock%}
 {%block content%}
+
 <body class="store-background">
-<div class="store-grid">
+
+  <!-- Основний грід -->
+  <div class="store-grid">
 
     <div class="store-title">
-        <span>STORE</span>
+      <span>STORE</span>
+    </div>
+    <!-- Список фільтрів -->
+    <div class="filters-page">
+      <!-- Вкладка з усіма елментами повязними з фільтрацією-->
+      <div class="filters-container">
+
+        <!-- Заголовок вкладки фільтрів -->
+        <div class="filters-panel">
+
+          <span>Filters <img class="filter-img" src="static/images/filter-img.png" alt=""></span>
+
+        </div>
+
+        <hr class="line-btwn-filters">
+        <!-- Панель з цінами -->
+        <div class="price-panel">
+
+          <span class="filters-inner-title">Price</span>
+          <!-- Контейнер групуючий ввід цін -->
+          <div class="price-grouping-container">
+
+            <!-- Вікно вводу ціни "від" -->
+            <div class="price-input-container">
+              <span>$</span>
+              <input type="number" placeholder="from...">
+              </input>
+
+            </div>
+            <!-- Кінець -->
+            <hr class="line-btwn-inputs">
+            <!-- Вікно вводу ціни "до" -->
+            <div class="price-input-container">
+              <span>$</span>
+              <input type="number" placeholder="to...">
+              </input>
+
+            </div>
+            <!-- Кінець -->
+          </div>
+          <!-- Кінець -->
+        </div>
+        <!-- Кінець панелі з цінами -->
+
+        <hr class="line-btwn-filters">
+
+        <!-- Вкладка з категоріями -->
+        <div class="category-panel">
+          <span class="filters-inner-title">Category</span>
+
+          <ul class="stones-filters">
+            <!-- Пункти списку -->
+            <li>
+              <div>
+                <input type="checkbox" class="checkbox">
+                Jewelry gems
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <input type="checkbox" class="checkbox">
+                Sculpting stones
+              </div>
+            </li>
+
+            <li>
+              <div>
+                <input type="checkbox" class="checkbox">
+                Decoration stones
+              </div>
+            </li>
+            <!-- Кінець -->
+          </ul>
+
+        </div>
+        <!-- Кінець вкладки з категоріями -->
+        <hr class="line-btwn-filters">
+      </div>
+      <!-- Кінець -->
     </div>
 
-    <div class="filters-page">
-        <ul>
-            <li id="filters">Filters <img src="" alt=""></li>
-            <hr>
-            <li id="price">Price <span>></span></li>
-            <hr>
-            <li id="category">Category <span>></span></li>
-            <hr>
-        </ul>
-    </div>
+    <!-- Список продуктів -->
     <div class="products-list">
 
-    </div>
+      <!-- Контейнер з продуктами -->
+      <div class="products-container">
 
-</div>
+        <!-- Вкладка продукту -->
+        {% for product in products %}
+        <div class="product-list-panel">
+          <!-- Дів з текстом -->
+          <div class="product-text">
+            <!-- Заголовок -->
+            <span class="product-title">{{ product.name }}</span>
+            <!-- Опис -->
+            <p class="product-descr">{{ product.description }}</p>
+          </div>
+          <!-- Кінець -->
+          <!-- Меню товара -->
+          <div class="product-bottom-menu">
+
+            <div class="product-price">
+              <!-- Ціна -->
+              <span class="currency">$</span>
+              {{ product.price }}
+            </div>
+            <!-- Кнопка додати в кошик -->
+            <button class="add-to-cart-btn">add to <img class="cart-img" src="static/images/cart-img.png"
+                alt=""></button>
+
+          </div>
+          <!-- Кінець меню товара -->
+
+        </div>
+        <!-- Кінець вкладки -->
+        {% endfor %}
+      </div>
+      <!-- Кінець контейнеру з продуктами -->
+    </div>
+    <!-- Кінець списку продуктів -->
+  </div>
+  <!-- Кінець -->
 </body>
 {%endblock%}
