@@ -4,10 +4,10 @@ def seed_products():
     init_db()  # Спочатку ініціалізуємо базу даних
     conn = get_db_connection()
     products = [
-        
+        ('Diamond', 520, "image href", "description"),
     ]
     
-    conn.executemany('INSERT INTO products (name, price, image) VALUES (?, ?, ?)', products)
+    conn.executemany('INSERT INTO products (name, price, image, description) VALUES (?, ?, ?, ?)', products)
     conn.commit()
     conn.close()
 

@@ -79,6 +79,7 @@
                 <input type="checkbox" class="checkbox">
                 Decoration stones
               </div>
+              
             </li>
             <!-- Кінець -->
           </ul>
@@ -99,10 +100,12 @@
         <!-- Вкладка продукту -->
         {% for product in products %}
         <div class="product-list-panel">
+
           <!-- Дів з текстом -->
           <div class="product-text">
+
             <!-- Заголовок -->
-            <span class="product-title">{{ product.name }}</span>
+            <form class="product-title">{{ product.name }}</form>
             <!-- Опис -->
             <p class="product-descr">{{ product.description }}</p>
           </div>
@@ -116,12 +119,13 @@
               {{ product.price }}
             </div>
             <!-- Кнопка додати в кошик -->
-            <button class="add-to-cart-btn">add to <img class="cart-img" src="static/images/cart-img.png"
-                alt=""></button>
-
+            <a href="{{ url_for('store.add_to_cart', product_id=product.id) }}">
+              <button class="add-to-cart-btn">add to <img class="cart-img" src="static/images/cart-img.png"
+                  alt=""></button>
+            </a>
           </div>
           <!-- Кінець меню товара -->
-
+          <img class="product-bg" src=" {{ product.image }}" alt="stone-background">
         </div>
         <!-- Кінець вкладки -->
         {% endfor %}

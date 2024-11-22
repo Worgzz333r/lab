@@ -11,7 +11,7 @@
 .cart-background .cart-grid {
     /* Поділ сторінки */
     display: grid;
-    grid-template-rows: 30px minmax(15em, 25em) minmax(5em, 15em);
+    grid-template-rows: 30px minmax(15em, 30em);
     grid-template-columns: 500px 500px;
     grid-gap: 3em 10em;
     justify-content: center;
@@ -34,8 +34,8 @@
     background-color: #B79C8C;
     border-radius: 10px;
     padding: 1em 0 0 1em;
-    box-shadow: 0 0 20px #00000080;
-}
+    box-shadow: 0 0 20px #00000080;    
+} 
 
 .cart-grid .order-elements .clear-all {
     /* Форматування блоку очищення*/
@@ -59,9 +59,15 @@
 
 .order-elements .product-panel {
     /* Встановлення смуги прокручування */
-    overflow: auto;
+    overflow:auto;
     overflow-y: scroll;
-    height: 21.5em;
+    margin-top: 1em;
+    height: 20em;
+    
+}
+
+.order-elements .else{
+    font-size: 2rem;
 }
 
 .order-elements .product-panel::-webkit-scrollbar {
@@ -81,7 +87,7 @@
     /* Робота з інформацією про продукт */
     display: grid;
     grid-template-rows: 5em 2em;
-    grid-template-columns: .7fr 2fr 2fr;
+    grid-template-columns: .7fr 2fr 1fr;
     width: 97%;
     background-color: #B57E67;
     border-radius: 10px; 
@@ -95,10 +101,15 @@
 
 .product .product-info {
     /* Встановлення і форматування назви каменю */
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: black;
     font-weight: bold;
     color: #3C2F2F;
+    grid-column: 1 / 3;
+}
+
+.product .product-info {
+    margin: .5em 0 0 1em;
 }
 
 .product .product-info p{
@@ -106,7 +117,7 @@
     margin: 0;
     font-size: .9rem;
     font-weight: normal;
-    width: 50%;
+    width: 100%;
     color: #403E3F;
 }
 
@@ -156,10 +167,11 @@
 .product .product-menu .amount-block {
     /* Загальне форматування показнику кількості продукту*/
     background-color: #DEDEDE;
-    width: 5em;
+    width: 3em;
     height: 1.5em;
     border-radius: 50px;
     margin-left: .5em;   
+    text-align: center;
 }
 
 .product .product-menu span{
@@ -176,38 +188,10 @@
     justify-content: space-between;
 }
 
-.product .product-menu .amount-menu .add{
-    /* Форматування кнопки "+" */
-    background-color: #3C2F2F;
-    border-radius: 50%;
-    border: 0;
-    height: 20px;
-    width: 20px;
-    margin-right: .1em;
-    color: #FFF4E6;
-    font-size: 0.9em;
-}
-
-.product .product-menu .amount-menu .minus{
-    /* Форматування кнопки "-" */
-    background-color: #3C2F2F;
-    border-radius: 50%;
-    border: 0;
-    height: 20px;
-    width: 20px;
-    margin-left: .1em;
-    color: #FFF4E6;
-    font-size: 0.9em;
-}
-
-.product .product-menu .amount-menu .minus hr{
-    /* Встановлення кнопки "-" */
-    border: .8px solid #FFF4E6;
-}
-
-.product .product-menu .amount-menu span {
+.product .product-menu .amount-block span {
     /* Встановлення кількості продукту */
     color: black;
+    text-align: center;
 }
 
 /* Кінець роботи з першим елементом */
@@ -215,50 +199,32 @@
 
 .cart-grid .total-container {
     /* Початок форматування другого обєкту */
+    height: 2em;
     border-radius: 10px;
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
-    background-color: #B79C8C;
-    box-shadow: 0 0 20px #00000080;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3em;    
+}
+
+.total-container .total-title {
+    font-size: 2em;
     margin: 0;
+    width: 30%;
+    display: inline;
 }
 
-.cart-grid .total-container h1{
-    /* Встановлення слова "Products" */
-    color: white;
-    font-size: 3em;
-    padding: .4em 0 0 .4em;
-    width: 5em;
-}
-
-.cart-grid .total-container p {
-    /* Форматування назв продуктів */
-    color: white;
-    font-size: 1.7rem;
-    margin: .4em 0 0 .7em;
-    width: 6em;
-}
-
-.cart-grid .total-container hr {
-    /* Встановлення розділювачів між продуктами */
-    border: .15em solid black;
-    width: 20em;
-    margin: 0 0 1em 1em;
-    border-radius: 10px;
-}
-
-.cart-grid .total-container .price{
-    /* Форматування загальної ціни товару */
-    position: absolute;
-    text-align: center;
+.total-container .total-price{
+    /* Форматування загальної ціни товарів */
     
-    width: 5em;
-    height: 1em;
+    width: fit-content;
+    height: 1.5rem;
 
-    margin-left: 15em;
-    margin-top: .8em;
-    
-    font-size: 1.5em;
+    margin-right: 1em;
+    text-align: center; 
+    padding: 0 .5em 0 .5em;
+
+    font-size: 1.2rem;
     background-color: #B57E67;
     border-radius: 5px;
 }
@@ -273,20 +239,14 @@
     color: #FFF4E6;
 }
 
-.cart-grid .total-container .price1{
-    /* Форматування загальної ціни іншого товару */
-    position: absolute;
-    text-align: center;
-    
-    width: 5em;
-    height: 1em;
-
-    margin-left: 15em;
-    margin-top: .2em;
-    
-    font-size: 1.5em;
-    background-color: #B57E67;
-    border-radius: 5px;
-}
 
 /* Кінець роботи з другим елементом */
+
+.cart-grid .order-form {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    background-color: #B79C8C;
+    box-shadow: 0 0 20px #00000080;
+    border-radius: 10px; 
+    height: 100%;
+}

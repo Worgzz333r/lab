@@ -4,7 +4,7 @@ body {
     list-style: none;
     text-decoration: none;
     font-family: 'Kameron';
-    height: 100%;
+    height: initial;
 }
 
 /* HEADER STYLE START */
@@ -30,7 +30,7 @@ header .container {
     background-color: #3C2F2F;
 }
 
-header .container .logo-container {
+.container .logo-container {
     /* Дів з логотипом і назвою  */
     display: table;
     height: 100%;
@@ -38,23 +38,23 @@ header .container .logo-container {
     float: left;
 }
 
-header .container .logo-container .text {
+.container .logo-container .text {
     /* Позиціонування тексту логотипу */
     display: table-cell;
     vertical-align: middle;
     height: 100%;
     /* Форматування тексту логотипу */
     font-family: 'Kameron';
-    font-size: 49px;
+    font-size: 47px;
     font-weight: 600;
 }
 
-header .container .logo-container .text a {
+.container .logo-container .text a {
     text-decoration: none;
     color: #FFF4E6;
 }
 
-header .container .logo-container .logo-img {
+.container .logo-container .logo-img {
     /* Форматування фото логотипу */
     display: table-cell;
     vertical-align: middle;
@@ -73,7 +73,7 @@ header .container .search-bar {
     padding: 19px 0px 0px 80px;
 }
 
-header .container .search-bar input {
+.container .search-bar input {
     /* Рядок введення */
     /* Позиціонування рядка вводу */
     padding-left: 40px;
@@ -89,6 +89,10 @@ header .container .search-bar input {
     /* Форматування інпуту рядка */
     font-size: 20px;
     color: #000000bf;
+}
+
+header .container .search-bar input::-webkit-search-cancel-button {
+    display: none;
 }
 
 header .container .loupe-img {
@@ -112,7 +116,7 @@ header .container .navigation {
     padding-left: 0;
 }
 
-header .container .navigation a {
+.container .navigation a {
     /* посилання в меню */
     height: 100%;
     display: table;
@@ -120,21 +124,21 @@ header .container .navigation a {
     padding: 0px 20px;
 }
 
-header .container .navigation a:last-child {
+.container .navigation a:last-child {
     padding-right: 0;
 }
 
-header .container .navigation a li {
+.container .navigation a li {
     /* Позиціонування кнопок меню */
     display: table-cell;
     vertical-align: middle;
     height: 100%;
 }
 
-header .container .navigation a li .header-btn {
+.navigation a li .header-btn {
     /* Позиціонування кнопки */
     padding: 0px 15px 0px 15px;
-
+    position: relative;
     /* Форматування кнопки */
     background-color: #563736;
     height: 40px;
@@ -146,19 +150,34 @@ header .container .navigation a li .header-btn {
     font-family: 'Kameron';
     font-size: 32px;
     color: #D5C5BA;
-    font-weight: medium;
-
 }
 
-/* 
-header .container .navigation a li .header-btn:hover {
- ddw
-} */
-
-header .container .navigation a li .header-btn:active {
+.navigation a li .header-btn:active {
     /* Анімація кнопок */
     transition: 0.1s;
     transform: scale(0.93);
+}
+
+.navigation a li .header-btn:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: .07em;
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: #E5CAA6;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+    margin-bottom: 0.15em;
+}
+
+.navigation a li .header-btn:hover:after {
+    transform: scaleX(70%);
+}
+
+.navigation a li #feedback-btn:hover:after {
+    transform: scaleX(80%);
 }
 
 /* Кінець */

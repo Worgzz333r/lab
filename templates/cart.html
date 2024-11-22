@@ -5,7 +5,6 @@
 {%block content%}
 
 <body class="cart-background">
-    {% if cart %}
     <div class="cart-grid">
         <h1>
             Cart
@@ -13,20 +12,24 @@
         <div class="order-elements">
             <div class="clear-all">
                 <img class="trash-bin-image" src="static/images/trash-bin.png">
-                <button class="clear-button">
-                    Clear
-                </button>
+                <a href="{{ url_for('store.remove_all', cart=cart) }}">
+                    <button class="clear-button">
+                        Clear
+                    </button>
+                </a>
             </div>
-
+            {% if cart %}
             <div class="product-panel">
+                {% for item in cart.values() %}
                 <div class="product">
-                    {% for item in cart.values() %}
-                    <img class="image" src="">
                     <span class="product-info">
                         {{ item.name }}
+                        <p>
+                            id: {{ item.id }}
+                        </p>
                     </span>
                     <span class="product-price">
-                        <span class="currency">$</span>{{ item.price }}
+                        <span class="currency">$ </span>{{ item.price }}
                     </span>
                     <div class="product-menu">
                         <button class="delete-button">
@@ -34,58 +37,36 @@
                         </button>
                         <div class="amount">
                             <span>
-                                Amount:
+                                Quantity:
                             </span>
                             <div class="amount-block">
-                                <div class="amount-menu">
-                                    <button class="minus">
-                                        <hr>
-                                    </button>
-                                    <span>
-                                        {{ item.quantity }}
-                                    </span>
-                                    <button class="add">
-                                        +
-                                    </button>
-                                </div>
+                                <span>
+                                    {{ item.quantity }}
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-        </div>
-        <div class="total-container">
-            <h1>
-                Products:
-            </h1>
-            <div class="price">
-                <span class="currency">$</span>
-                <span class="price-number">{{ item.price }}</span>
-            </div>
-            <p>
-                {{ item.name }} -
-                <span class="product-number">
-                    {{ item.quantity }}
+            <div class="total-container">
+                <span class="total-title">
+                    Total:
                 </span>
-            </p>
-            <hr>
-            <div class="price1">
-                <span class="currency">$</span>
-                <d class="price-number">{{ item.price }} * {{ item.quantity }}</d>
+                <div class="total-price">
+                    <span class="currency">$ </span>
+                    <span class="price-number">{{ total }} </span>
+                </div>
             </div>
-            <p>
-                Total:
-            </p>
+            {% else %}
+            <p class="else">Your cart is empty</p>
+            {% endif %}
         </div>
-        {% endfor %}
-        <div class="recomendations-block">
-
-        </div>
+        <!-- {% if cart %}
+        <form action="{{ url_for('store.checkout') }}" method="post" class="order-form">
+            <button>Submit order</button>
+        </form>
+        {% endif %} -->
     </div>
-    {% else %}
-    <p>
-        Ваш кошик порожній.
-    </p>
-    {% endif %}
 </body>
 {%endblock%}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
 
+<html>
+    
 <head>
     {%block title%}{%endblock%}
     <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
@@ -22,7 +23,7 @@
 
             <!-- Логотип та назва сайту -->
             <div class="logo-container">
-                <img class="logo-img" src="static/images/dr-stone-img.png">
+                <img class="logo-img" src="{{ url_for('static', filename='images/dr-stone-img.png') }}">
                 <span class="text"><a href="/">Stone hearts</a></span>
 
             </div>
@@ -30,7 +31,7 @@
 
             <!-- Пошуковий рядок -->
             <div class="search-bar">
-                <img class="loupe-img" src="static/images/loupe-img.png">
+                <img class="loupe-img" src="{{ url_for('static', filename='images/loupe-img.png') }}">
                 <input type="search" placeholder="Stone...">
                 </input>
             </div>
@@ -38,17 +39,17 @@
 
             <!-- Меню -->
             <ul class="navigation">
-                <a href="{{ url_for('store.store') }}">
+                <a href="/store">
                     <li><button class="header-btn">store</button></li>
                 </a>
-                <a href="{{ url_for('store.cart') }}">
+                <a href="/cart">
                     <li><button class="header-btn">cart</button></li>
                 </a>
-                <a href="{{ url_for('about') }}">
+                <a href="/about">
                     <li><button class="header-btn">about</button></li>
                 </a>
-                <a href="{{ url_for('feedback.feedback') }}">
-                    <li><button class="header-btn">feedback</button></li>
+                <a href="/feedback">
+                    <li><button class="header-btn" id="feedback-btn">feedback</button></li>
                 </a>
             </ul>
             <!-- Кінець -->

@@ -35,3 +35,9 @@ def checkout():
     add_order(email, address, cart)
     session['cart'] = {}
     return redirect(url_for('store.store'))
+
+@store_bp.route('/remove_all')
+def remove_all():
+    session['cart'] = {}
+    cart = session.get('cart', {})
+    return redirect(url_for('store.cart'))

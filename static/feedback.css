@@ -21,6 +21,7 @@
 .feedback-form .feedback-bg-format {
     /* Формат полів */
     font-size: 1.5rem;
+    font-family: 'Kameron';
     background-color: #F5C0AD;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -87,10 +88,6 @@ input:-webkit-autofill:active{
     font-family: 'Kameron';
     font-size: 32px;
 }
-
-/* .feedback-form .message-input::-webkit-search-cancel-button {
-    display: none;
-} */
 
 /*Кнопака надсилання відгуку */
 .submit-btn {

@@ -28,7 +28,7 @@ def add_order(email, address, cart):
         total_price = sum(item['price'] * item['quantity'])
     cur = conn.cursor()
     cur.execute('INSERT INTO orders (email, address, total_price, status, date) VALUES (?, ?, ?, ?, ?)',
-                (email, address, total_price, 'New', datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+                (email, address, total_price, 'New', datetime.now().strftime("%Y-%m-%d %H:%M")))
     order_id = cur.lastrowid
     for item in cart.values():
         cur.execute('INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)',
@@ -61,3 +61,6 @@ def delete_order(order_id):
     conn.execute('DELETE FROM orders WHERE id = ?', (order_id,))
     conn.commit()
     conn.close()
+
+def full_remove_cart(cart):
+    cart = {}
