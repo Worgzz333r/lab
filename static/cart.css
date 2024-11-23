@@ -73,14 +73,14 @@
 .order-elements .product-panel::-webkit-scrollbar {
     /* Форматування фону смуги прокручування */
     background-color: #A2725E;
-    border-radius: 10px 10px 10px 0;
+    border-radius: 10px 10px 10px 10px;
     width: .9em;
 }
 
 .order-elements .product-panel::-webkit-scrollbar-thumb {
     /* Форматування колесика смуги прокручування */
     background-color: #3C2F2F;
-    border-radius: 10px 10px 10px 0;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .order-elements .product-panel .product {

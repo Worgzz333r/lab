@@ -1,12 +1,28 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
-from models import get_products, add_order
+import sys
+sys.path.append(r'C:\Users\andri\OneDrive\Документи\GitHub\lab')
+from models import get_products, add_order, get_db_connection
 
 store_bp = Blueprint('store', __name__)
 
 @store_bp.route('/store')
 def store():
-    products = get_products()
-    return render_template('store.html', products=products)
+    query = request.args.get('query', '').strip()  
+    if query:
+        products = search_products(query)  
+    else:
+        products = get_products()  
+
+    return render_template('store.html', products=products, query=query)
+
+def search_products(query):
+    conn = get_db_connection()
+    results = conn.execute(
+        'SELECT * FROM products WHERE name LIKE ?',
+        (f'%{query}%',)
+    ).fetchall()
+    conn.close()
+    return results
 
 @store_bp.route('/add_to_cart/<int:product_id>')
 def add_to_cart(product_id):
@@ -39,5 +55,4 @@ def checkout():
 @store_bp.route('/remove_all')
 def remove_all():
     session['cart'] = {}
-    cart = session.get('cart', {})
     return redirect(url_for('store.cart'))
