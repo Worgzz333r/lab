@@ -1,20 +1,22 @@
-{%extends "base.html"%}
+{% extends "base.html" %}
 
-{%block title%}<title>Stone hearts</title>{%endblock%}
-{%block content%}
+{% block title %}
+<title>Stone hearts</title>
+{% endblock %}
+{% block content %}
 
 <body class="feedback">
     <form autocomplete="off" id="feedback-id" class="feedback-container">
-        <h1> Feedback Form </h1>
+        <h1>Feedback Form</h1>
         <div class="feedback-form">
-            <span for="name"> Name: </span>
-            <input type="text" id="name" name="name" class="name-input feedback-bg-format" placeholder="Enter name">
-            <span for="email"> Email: </span>
-            <input type="email" id="email" name="email" class="email-input feedback-bg-format" placeholder="Enter email">
-            <span for="subject"> Subject: </span>
-            <input type="text" id="subject" name="subject" class="subject-input feedback-bg-format" placeholder="Enter subject">
-            <span for="message"> Message: </span>
-            <textarea id="message" name="message" class="message-input feedback-bg-format" placeholder="Enter message"></textarea>
+            <span for="name">Name: </span>
+            <input type="text" id="name" name="name" class="name-input feedback-bg-format" placeholder="Enter name" required>
+            <span for="email">Email: </span>
+            <input type="email" id="email" name="email" class="email-input feedback-bg-format" placeholder="Enter email" required>
+            <span for="subject">Subject: </span>
+            <input type="text" id="subject" name="subject" class="subject-input feedback-bg-format" placeholder="Enter subject" required>
+            <span for="message">Message: </span>
+            <textarea id="message" name="message" class="message-input feedback-bg-format" placeholder="Enter message" required></textarea>
         </div>
         <div class="btn-container">
             <button type="submit" class="submit-btn">Submit</button>
@@ -29,7 +31,17 @@
         const closeButton = document.getElementById('closeModal');
 
         form.addEventListener('submit', function (e) {
-            e.preventDefault();
+            // Перевіряємо, чи є порожні поля перед відправкою форми
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields.');
+                e.preventDefault(); // зупиняє відправку форми
+                return;
+            }
 
             // Відправляємо дані на сервер за допомогою AJAX
             fetch('{{ url_for("feedback.feedback") }}', {
@@ -38,15 +50,14 @@
             })
                 .then(response => {
                     if (response.ok) {
-                        // Очищаємо форму
                         form.reset();
                     } else {
-                        alert('Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз.');
+                        alert('An error occurred while submitting the form. Please try again.');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Виникла помилка при відправці форми. Будь ласка, спробуйте ще раз.');
+                    alert('An error occurred while submitting the form. Please try again.');
                 });
         });
 
@@ -55,4 +66,4 @@
         });
     });
 </script>
-{%endblock%}
+{% endblock %}
