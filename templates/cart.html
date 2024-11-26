@@ -12,7 +12,7 @@
         <div class="order-elements">
             <div class="clear-all">
                 <img class="trash-bin-image" src="static/images/trash-bin.png">
-                <a href="{{ url_for('store.remove_all', cart=cart) }}">
+                <a href="{{ url_for('store.remove_all')}}">
                     <button class="clear-button">
                         Clear
                     </button>
@@ -22,19 +22,26 @@
             <div class="product-panel">
                 {% for item in cart.values() %}
                 <div class="product">
-                    <span class="product-info">
-                        {{ item.name }}
-                        <p>
-                            id: {{ item.id }}
-                        </p>
-                    </span>
+                    <div class="img-container">
+                        <img class="product-img" src="{{ item.image }}" alt="{{ item.name }}">
+                    </div>
+                    <div class="product-info">
+                        <span>
+                            {{ item.name }}
+                            <p>
+                                id: {{ item.id }}
+                            </p>
+                        </span>
+                    </div>
                     <span class="product-price">
-                        <span class="currency">$ </span>{{ item.price }}
+                        <span class="currency">$</span>{{ item.price }}
                     </span>
                     <div class="product-menu">
-                        <button class="delete-button">
-                            Delete
-                        </button>
+                        <a href="{{ url_for('store.remove_one_id', product_id=item.id) }}">
+                            <button class="delete-button">
+                                Delete
+                            </button>
+                        </a>
                         <div class="amount">
                             <span>
                                 Quantity:
@@ -62,11 +69,38 @@
             <p class="else">Your cart is empty</p>
             {% endif %}
         </div>
-        <!-- {% if cart %}
-        <form action="{{ url_for('store.checkout') }}" method="post" class="order-form">
-            <button>Submit order</button>
+        {% if cart %}
+        <form autocomplete="off" action="{{ url_for('store.checkout') }}" method="post" class="order-form">
+            <div class="order-title">
+                <span>Order details</span>
+            </div>
+            <div class="order-details">
+                <div class="order-name">
+                    <span for="name">
+                        Name:
+                    </span>
+                    <input type="text" id="name" name="name" required placeholder="Enter name..."></input>
+                </div>
+                <div class="order-email">
+                    <span for="email">
+                        Email:
+                    </span>
+                    <input type="email" id="email" name="email" required placeholder="Enter email..."></input>
+                </div>
+                <div class="order-address">
+                    <span for="address">
+                        Address:
+                    </span>
+                    <input type="text" id="address" name="address" required placeholder="Enter address..."></input>
+                </div>
+            </div>
+            <div class="submit-order">
+                <button class="submit-order-btn">
+                    Submit order
+                </button>
+            </div>
         </form>
-        {% endif %} -->
+        {% endif %}
     </div>
 </body>
 {%endblock%}

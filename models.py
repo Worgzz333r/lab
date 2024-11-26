@@ -22,13 +22,12 @@ def get_products():
     conn.close()
     return products
 
-def add_order(email, address, cart):
+def add_order(name, email, address, cart):
     conn = get_db_connection()
-    for item in cart.values():
-        total_price = sum(item['price'] * item['quantity'])
+    total_price = sum(item['price'] * item['quantity'] for item in cart.values())
     cur = conn.cursor()
-    cur.execute('INSERT INTO orders (email, address, total_price, status, date) VALUES (?, ?, ?, ?, ?)',
-                (email, address, total_price, 'New', datetime.now().strftime("%Y-%m-%d %H:%M")))
+    cur.execute('INSERT INTO orders (name, email, address, total_price, status, date) VALUES (?, ?, ?, ?, ?, ?)',
+                (name, email, address, total_price, 'New', datetime.now().strftime("%Y-%m-%d %H:%M")))
     order_id = cur.lastrowid
     for item in cart.values():
         cur.execute('INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)',
