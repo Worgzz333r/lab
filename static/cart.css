@@ -166,8 +166,11 @@
     border: 0;
     color: #C59B5E;
     background-color: #844518;
-    text-decoration: underline;
     margin-left: .3em;
+}
+
+.product .product-menu .delete-button:hover {
+    text-decoration: underline 2px solid #C59B5E;
 }
 
 .product .product-menu .amount {
