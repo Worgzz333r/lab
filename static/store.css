@@ -71,15 +71,14 @@
     grid-row: 1 / 2;
     color: #FFF4E6;
     border-radius: 10px 10px 0 0;
-    background-color: transparent;
     text-shadow: 2px 1px 3px #231E32;
     padding-left: .7em;
 }
 
 .product-bg{
     position: absolute;
-    width: 480px;
-    height: 187.5px;
+    width: 30em;
+    height: 11em;
     z-index: -1;
     border-radius: 10px;
     box-shadow: 3px 3px 10px #3C2F2F;

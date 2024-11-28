@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime
 
 def get_db_connection():
-    conn = sqlite3.connect('db1.sqlite')
+    conn = sqlite3.connect('db.sqlite')
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -61,5 +61,3 @@ def delete_order(order_id):
     conn.commit()
     conn.close()
 
-def full_remove_cart(cart):
-    cart = {}
