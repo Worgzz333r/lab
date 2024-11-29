@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='order_details.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Kameron" rel="stylesheet">
     <link rel="icon" href="{{ url_for('static', filename='images/dr-stone-img.png') }}" type="image/x-icon">
-
 </head>
 
     <header>
@@ -32,8 +31,10 @@
             <!-- Пошуковий рядок -->
             <div class="search-bar">
                 <img class="loupe-img" src="{{ url_for('static', filename='images/loupe-img.png') }}">
-                <input type="search" placeholder="Stone...">
+                <form action="{{ url_for('store.store') }}" method="GET">
+                <input type="search" name="query" placeholder="Stone...">
                 </input>
+                </form>
             </div>
             <!-- Кінець -->
 
@@ -57,7 +58,6 @@
         </div>
         <!-- Кінець -->
     </header>
-
 
         {%block content%}{%endblock%}
 

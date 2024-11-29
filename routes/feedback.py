@@ -8,11 +8,12 @@ def feedback():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
+        subject = request.form['subject']
         message = request.form['message']
         
         conn = get_db_connection()
-        conn.execute('INSERT INTO feedback (name, email, message) VALUES (?, ?, ?)',
-                     (name, email, message))
+        conn.execute('INSERT INTO feedback (name, email, subject, message) VALUES (?, ?, ?, ?)',
+                     (name, email, subject, message))
         conn.commit()
         conn.close()
         

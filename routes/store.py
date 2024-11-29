@@ -1,12 +1,26 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
-from models import get_products, add_order
+from models import get_products, add_order, get_db_connection
 
 store_bp = Blueprint('store', __name__)
 
 @store_bp.route('/store')
 def store():
-    products = get_products()
-    return render_template('store.html', products=products)
+    query = request.args.get('query', '').strip()  
+    if query:
+        products = search_products(query)  
+    else:
+        products = get_products()  
+
+    return render_template('store.html', products=products, query=query)
+
+def search_products(query):
+    conn = get_db_connection()
+    results = conn.execute(
+        'SELECT * FROM products WHERE name LIKE ?',
+        (f'%{query}%',)
+    ).fetchall()
+    conn.close()
+    return results
 
 @store_bp.route('/add_to_cart/<int:product_id>')
 def add_to_cart(product_id):
@@ -17,7 +31,7 @@ def add_to_cart(product_id):
         if str(product_id) in cart:
             cart[str(product_id)]['quantity'] += 1
         else:
-            cart[str(product_id)] = {'id': product_id, 'name': product['name'], 'price': product['price'], 'quantity': 1}
+            cart[str(product_id)] = {'id': product_id, 'image': product['image'] ,'name': product['name'], 'price': product['price'], 'quantity': 1}
         session['cart'] = cart
     return redirect(url_for('store.store'))
 
@@ -30,8 +44,22 @@ def cart():
 @store_bp.route('/checkout', methods=['POST'])
 def checkout():
     cart = session.get('cart', {})
+    name = request.form['name']
     email = request.form['email']
     address = request.form['address']
-    add_order(email, address, cart)
+    add_order(name, email, address, cart)
     session['cart'] = {}
     return redirect(url_for('store.store'))
+
+@store_bp.route('/remove_all')
+def remove_all():
+    session['cart'] = {}
+    return redirect(url_for('store.cart'))
+
+@store_bp.route('/remove_one_id')
+def remove_one_id(product_id):
+    cart = session.get('cart', {})
+    if product_id in cart:
+        del cart[product_id]  
+        request.session["cart"] = cart
+    return redirect(url_for('store.cart'))

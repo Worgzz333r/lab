@@ -166,7 +166,7 @@ header .container .navigation {
     border-radius: 5px;
     bottom: 0;
     left: 0;
-    background-color: #E5CAA6;
+    background-color: #D5C5BA;
     transform: scaleX(0);
     transition: transform 0.3s ease-out;
     margin-bottom: 0.15em;

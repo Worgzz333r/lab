@@ -7,7 +7,7 @@
         <h1>Order details #{{ order['id'] }} </h1>
             <p><strong>Email:</strong> {{ order['email'] }}</p>
             <p><strong>Address:</strong> {{ order['address'] }}</p>
-            <p><strong>Total price:</strong> {{ order['total_price'] }} $</p>
+            <p><strong>Total price:</strong> ${{ order['total_price'] }}</p>
             <p><strong>Status:</strong> {{ order['status'] }}</p>
             <p><strong>Date:</strong> {{ order['date'] }}</p>
 
@@ -25,9 +25,9 @@
         {% for item in items %}
         <tr>
             <td>{{ item['name'] }}</td>
-            <td>{{ item['price'] }} $</td>
+            <td>${{ item['price'] }} </td>
             <td>{{ item['quantity'] }}</td>
-            <td>{{ item['price'] * item['quantity'] }} $</td>
+            <td>${{ item['price'] * item['quantity'] }} </td>
         </tr>
         {% endfor %}
     </tbody>
@@ -36,7 +36,7 @@
 </body>
 
 <h2>Change order status</h2>
-<form action="{{ url_for('admin.update_order', order_id=order['id']) }}" method="post">
+<form action="{{ url_for('admin.update_order', order_id=order['id']) }}" method="POST">
     <select name="status">
         <option value="New" {% if order['status'] == 'New' %}selected{% endif %}>New</option>
         <option value="In progress" {% if order['status'] == 'In progress' %}selected{% endif %}>In progress</option>

@@ -62,21 +62,21 @@
             <!-- Пункти списку -->
             <li>
               <div>
-                <input type="checkbox" class="checkbox">
+                <input type="checkbox" id="1" class="checkbox jewelry">
                 Jewelry gems
               </div>
             </li>
 
             <li>
               <div>
-                <input type="checkbox" class="checkbox">
+                <input type="checkbox" id="2" class="checkbox sculpting">
                 Sculpting stones
               </div>
             </li>
 
             <li>
               <div>
-                <input type="checkbox" class="checkbox">
+                <input type="checkbox" id="3" class="checkbox decoration">
                 Decoration stones
               </div>
             </li>
@@ -86,6 +86,9 @@
         </div>
         <!-- Кінець вкладки з категоріями -->
         <hr class="line-btwn-filters">
+        <div class="filter-btn-wrapper">
+          <button class="filter-btn">Filtrate</button>
+        </div>
       </div>
       <!-- Кінець -->
     </div>
@@ -99,10 +102,10 @@
         <!-- Вкладка продукту -->
         {% for product in products %}
         <div class="product-list-panel">
-         
+
           <!-- Дів з текстом -->
           <div class="product-text">
-           
+
             <!-- Заголовок -->
             <form class="product-title">{{ product.name }}</form>
             <!-- Опис -->
@@ -118,12 +121,13 @@
               {{ product.price }}
             </div>
             <!-- Кнопка додати в кошик -->
-            <button class="add-to-cart-btn">add to <img class="cart-img" src="static/images/cart-img.png"
-                alt=""></button>
-
+            <a class="h-ref" href="{{ url_for('store.add_to_cart', product_id=product.id) }}">
+              <button class="add-to-cart-btn">add to <img class="cart-img" src="static/images/cart-img.png"
+                  alt=""></button>
+            </a>
           </div>
           <!-- Кінець меню товара -->
-          <img class="product-bg" src=" {{ product.image }}" alt="stone-background">
+          <img class="product-bg" src=" {{ product.background }}" alt="stone-background">
         </div>
         <!-- Кінець вкладки -->
         {% endfor %}
@@ -134,4 +138,5 @@
   </div>
   <!-- Кінець -->
 </body>
+
 {%endblock%}

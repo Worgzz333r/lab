@@ -40,7 +40,7 @@
                     </span>
                 </td>
                 <td class="table-element">{{ order['date'] }}</td>
-                <td class="table-element">
+                <td class="table-actions-cell">
                     <a href="{{ url_for('admin.order_details', order_id=order['id']) }}"
                         class="details-href">Details</a>
                     <form action="{{ url_for('admin.delete_order_route', order_id=order['id']) }}" method="post"
@@ -59,7 +59,7 @@
     <table class="table-format">
         <thead class="table-header">
             <tr>
-                <th style="padding-left:1em;" class="table-text-title">ID</th>
+                <th class="table-text-title">ID</th>
                 <th class="table-text-title">NAME</th>
                 <th class="table-text-title">EMAIL</th>
                 <th class="table-text-title">SUBJECT</th>

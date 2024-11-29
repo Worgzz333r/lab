@@ -71,10 +71,17 @@
     text-decoration: none;
 }
 
-.details-href:hover{
+.details-href:hover {
     text-decoration: underline 2px solid #3C2F2F;
 }
 
-.table-element{
-    text-align: center;
+.table-element {
+    text-align: left;
+}
+
+.table-actions-cell {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
