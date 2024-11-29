@@ -47,10 +47,10 @@ def get_order(order_id):
 def create_order():
     try:
         data = request.get_json()
-        if not data or 'email' not in data or 'address' not in data or 'cart' not in data:
+        if not data or 'email' not in data or 'name' not in data or 'address' not in data or 'cart' not in data:
             return jsonify({'error': 'Missing required fields'}), 400
         
-        add_order(data['email'], data['address'], data['cart'])
+        add_order(data['name'], data['email'], data['address'], data['cart'])
         return jsonify({'message': 'Order created successfully'}), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -90,13 +90,13 @@ def get_all_feedback():
 def create_feedback():
     try:
         data = request.get_json()
-        if not data or not all(k in data for k in ['name', 'email', 'message']):
+        if not data or not all(k in data for k in ['name', 'email','subject', 'message']):
             return jsonify({'error': 'All fields are required'}), 400
         
         conn = get_db_connection()
         conn.execute(
-            'INSERT INTO feedback (name, email, message) VALUES (?, ?, ?)',
-            (data['name'], data['email'], data['message'])
+            'INSERT INTO feedback (name, email, subject, message) VALUES (?, ?, ?, ?)',
+            (data['name'], data['email'],  data['subject'], data['message'])
         )
         conn.commit()
         conn.close()
