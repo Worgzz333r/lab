@@ -6,16 +6,14 @@
 
 .feedback .feedback-container {
     background-color: #BD977C;
-    width: 650px;
-    height: 830px;
+    width:fit-content;
     margin: 0 auto;
     margin-top: 3vh;
     border-radius: 10px;
     box-shadow: 0px 0px 20px #331500;
-    font-family: 'Kameron';
     text-align: center;
-    padding-top: 0.1vh;
     color: #FFF4E6;
+    padding: 1em;
 }
 
 .feedback-form .feedback-bg-format {
@@ -23,7 +21,7 @@
     font-size: 1.5rem;  
     font-family: 'Kameron';
     background-color: #F5C0AD;
-    margin-bottom: 30px;
+    margin-bottom: .5em;
     border-radius: 10px;
     outline: none;
     border: 0;
@@ -39,32 +37,31 @@ input:-webkit-autofill:active{
 }
 
 .feedback .feedback-container h1 {
-    font-size: 52px;
+    font-size: 2.5rem;
+    margin: 0;
 }
 
 .feedback-form {
     text-align: left;
-    margin-left: 4vh;
 }
 
 .feedback-form span {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: bold;
-    display: block;
 }
 
 /* Рядок вводу ім'я*/
 .feedback-form .name-input {
     /* Форматування рядка вводу */
     width: 260px;
-    height: 40px;
+    height: 30px;
 }
 
 /* Рядок введення пошти*/
 .feedback-form .email-input {
     /* Форматування рядка вводу */
     width: 420px;
-    height: 40px;
+    height: 30px;
 
 }
 
@@ -72,19 +69,19 @@ input:-webkit-autofill:active{
 .feedback-form .subject-input {
     /* Форматування рядка вводу */
     width: 420px;
-    height: 40px;
+    height: 30px;
 }
 
 /* Рядок введення повідомлення*/
 .feedback-form .message-input {
     /* Форматування рядка вводу */
-    width: 560px;
-    height: 160px;
+    width: 520px;
+    height: 120px;
 }
 
  .message-input::placeholder {
     font-family: 'Kameron';
-    font-size: 32px;
+    font-size: 1.5rem;
 }
 
 /*Кнопака надсилання відгуку */
@@ -115,7 +112,7 @@ input:-webkit-autofill:active{
 }
 
 .feedback-form input::placeholder {
-    font-size: 32px;
+    font-size: 1.5rem;
     font-family: 'Kameron';
 }
 
