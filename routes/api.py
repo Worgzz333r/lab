@@ -43,18 +43,6 @@ def get_order(order_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@api_bp.route('/api/orders', methods=['POST'])
-def create_order():
-    try:
-        data = request.get_json()
-        if not data or 'email' not in data or 'address' not in data or 'cart' not in data:
-            return jsonify({'error': 'Missing required fields'}), 400
-        
-        add_order(data['email'], data['address'], data['cart'])
-        return jsonify({'message': 'Order created successfully'}), 201
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
 @api_bp.route('/api/orders/<int:order_id>', methods=['PUT'])
 def update_order(order_id):
     try:
